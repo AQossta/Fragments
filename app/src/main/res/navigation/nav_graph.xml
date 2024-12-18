@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/exampleFirstFragment">
+
+    <fragment
+        android:id="@+id/exampleSecondFragment"
+        android:name="com.example.navigation_component_8.ExampleSecondFragment"
+        android:label="fragment_example_second"
+        tools:layout="@layout/fragment_example_second" >
+        <action
+            android:id="@+id/action_exampleSecondFragment_to_exampleThirdFragment"
+            app:destination="@id/exampleThirdFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/exampleFirstFragment"
+        android:name="com.example.navigation_component_8.ExampleFirstFragment"
+        android:label="fragment_example_first"
+        tools:layout="@layout/fragment_example_first" >
+        <action
+            android:id="@+id/action_exampleFirstFragment_to_exampleSecondFragment"
+            app:destination="@id/exampleSecondFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/exampleThirdFragment"
+        android:name="com.example.navigation_component_8.ExampleThirdFragment"
+        android:label="fragment_example_third"
+        tools:layout="@layout/fragment_example_third" >
+        <action
+            android:id="@+id/action_exampleThirdFragment_to_exampleFourthFragment"
+            app:destination="@id/exampleFourthFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/exampleFourthFragment"
+        android:name="com.example.navigation_component_8.ExampleFourthFragment"
+        android:label="fragment_example_fourth"
+        tools:layout="@layout/fragment_example_fourth" >
+        <action
+            android:id="@+id/action_exampleFourthFragment_to_exampleFifthFragment"
+            app:destination="@id/exampleFifthFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/exampleFifthFragment"
+        android:name="com.example.navigation_component_8.ExampleFifthFragment"
+        android:label="fragment_example_fifth"
+        tools:layout="@layout/fragment_example_fifth" >
+        <action
+            android:id="@+id/action_exampleFifthFragment_to_exampleFirstFragment"
+            app:destination="@id/exampleFirstFragment"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="false" />
+    </fragment>
+</navigation>
