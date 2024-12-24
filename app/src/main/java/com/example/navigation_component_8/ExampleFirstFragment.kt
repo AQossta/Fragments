@@ -1,13 +1,17 @@
 package com.example.navigation_component_8
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
+import com.example.navigation_component_8.data.RetrofitService
 import com.example.navigation_component_8.databinding.FragmentExampleFirstBinding
+import kotlinx.coroutines.launch
 
 class ExampleFirstFragment : Fragment() {
 
@@ -26,6 +30,15 @@ class ExampleFirstFragment : Fragment() {
             findNavController().navigate(R.id.action_exampleFirstFragment_to_exampleSecondFragment)
         }
 
+        binding.button2.setOnClickListener {
+            lifecycleScope.launch {
+                try {
+                    val data = RetrofitService.apiService.getFactToday()
+                    binding.textViewFact.text = data.permalink
+                } catch (e: Exception) {
+                    Log.d("AAA", e.message.toString())
+                }
+            }
+        }
     }
-
 }
